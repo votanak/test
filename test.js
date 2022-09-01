@@ -1,5 +1,5 @@
 let vova = 'sensey'
-let roma='puple'
+let roma='romantic'
 Privet is vetki
 Novyi privet
 Prishla Zhena
