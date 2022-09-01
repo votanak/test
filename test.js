@@ -1,4 +1,4 @@
 let vova = 'sensey'
-let roma='puple'
+const function getUser {return 'user'}
 Privet is vetki
 Novyi privet
