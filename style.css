@@ -1,9 +1,8 @@
 body {
-  background: black;
+  background: rgb(0, 0, 0);
   color: #fff;
 }
 
 .colored {
-  color: #1fc050;
-}
-/*# sourceMappingURL=style.css.map */
+  color: rgb(31, 192, 80);
+}/*# sourceMappingURL=style.css.map */

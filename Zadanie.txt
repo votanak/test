@@ -1,0 +1,43 @@
+const but = document.querySelector('#but');
+const nul = document.getElementById('nul');
+but.addEventListener('click',function (){nul.innerText = incrNumber()});
+const incrNumber = (() => {
+let savedValue = 0;
+return function(){
+	 savedValue += 1;
+   console.log(savedValue);
+   return savedValue;
+}
+})();
+
+const addClap = (() => {
+  let clapCounter = 0;
+  
+  return () => {    
+		clapCounter++;
+   	 return clapCounter++;
+    }
+    
+  })();
+
+Задания на след. встречу
+Замыкания с примерами: 
+https://learn.javascript.ru/closure
+
+Прочитать про функциональный подход, отличие от ООП
+
+Event LOOP - обычный цикл событий, которые выполняет события последовательно мастхэв
+как можно повлиять на Event Loop
+
+Синхронность и асинхронность.
+
+Стеки
+
+Коллбэк функция
+
+setTimout
+
+Promises - это объекты
+
+Добавить минус в задачу с замыканиями
+
