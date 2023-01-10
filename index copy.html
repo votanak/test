@@ -13,10 +13,24 @@
 
 </body>
 <script>
-    let input = 'lasdkfjasldkjaf';
-    console.log(input.split('').splice(3, 2));
+    function bingo(ticket, win) {
+        if ([...ticket].reduce((rez, pair) => rez + miniCount(pair), 0) >= win) {
+            return 'Winner!';
+        }
+        else {
+            return 'Loser!'
+        }
 
+        function miniCount(arr) {
+            return [...arr[0]].reduce((re, vo) => re + +(vo.charCodeAt() == arr[1]), 0);
 
+        }
+    }
+    console.log(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 1));
+
+//     function bingo(ticket, win){
+//   ([...ticket].reduce((rez,pair) => rez + [...pair[0]].reduce((r,v) => +(v.atCharCode() == pair[1]),0),0) => win) ? return 'Winner!':return 'Loser!';
+// }
 
 </script>
 
