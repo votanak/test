@@ -10,19 +10,13 @@
 </head>
 
 <body>
-    <input id="input">
-    <input id="button" type="button" data-quantity=0>
+
 </body>
 <script>
-    function scoreCounting(wrd) {
-        for (i = 0; i <= wrd.length; i++) {
-            return wrd.split('').reduce((res, cur) => res + cur.charCodeAt() - 96, 0)
-        }
+    function getSum(a, b) {
+        return (a === b) ? a : a + b;
     }
-    console.log(scoreCounting('volcano'));
-    console.log(scoreCounting('climbing'));
-    console.log(scoreCounting('abad'));
-    console.log(Number(22 == 20));
+    console.log(getSum(-315, 292));
 </script>
 
 </html>
