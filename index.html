@@ -15,23 +15,27 @@
     <div id="nul">0</div>
 </body>
 <script>
-    const butPlus = document.querySelector('#butPlus');
-    const butMinus = document.querySelector('#butMinus');
-    const nul = document.getElementById('nul');
-    butPlus.addEventListener('click', function () { nul.innerText = incrNumber.up() });
-    butMinus.addEventListener('click', function () { nul.innerText = incrNumber.down() });
-    function Counter() {
-        let savedValue = 0;
+    function makeArmy() {
+        let shooters = [];
 
-        this.up = function () {
-            return ++savedValue;
-        }
-        this.down = function () {
-            return --savedValue;
+        let i = 0;
+        while (i < 10) {
+            let j = i;
+            let shooter = function () {
+                alert(j); // должна выводить порядковый номер
+            };
+            shooters.push(shooter);
+            i++;
         }
 
-    };
-    const incrNumber = new Counter();
+        return shooters;
+    }
+
+    let army = makeArmy();
+
+    console.log(army[0]()); // у 0-го стрелка будет номер 10
+    console.log(army[5]());
+
 </script>
 
 
