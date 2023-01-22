@@ -13,42 +13,11 @@
 
 </body>
 <script>
-    // function power(array) {
-    //     let newArr = [];
-    //     if (array.length === 0) {
-    //         newArr.push(array);
-    //         return newArr;
-    //     }
-    //     let ind = [];
-    //     for (j = 0; j <= array.length - 1; j++) {
-    //         newArr.push([array[j]]);
-    //         for (i = j + 1; i <= array.length - 1; i++) {
-    //             newArr.push([array[j], array[i]]);
-    //             for (k = i + 1; k <= array.length - 1; k++) {
-    //                 newArr.push([array[j], array[i], array[k]]);
-    //                 for (L = k + 1; L <= array.length - 1; L++) {
-    //                     newArr.push([array[j], array[i], array[k], array[L]]);
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     function formArr() {
-
-    //     }
-
-    //     newArr.unshift([]);
-    //     return newArr;
-    // }
-
-    function power(array) {
-        let iDouble;
-        for (i = 0; i < array.length; i++) {
-            iDouble = parseInt(i, 2);
-            console.log(iDouble);
-        }
-        return
+    function makePassword(password) {
+        let tryPassword = '123';
+        return (tryPassword === password);
     }
-    console.log(power([1, 2, 3, 4]));
+    console.log(makePassword('123'));
 </script>
 
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TEST</title>
+</head>
+
+<body>
+    <div id="forBack">
+        <div id="back">Назад</div>
+        <div id="forward">Вперёд</div>
+    </div>
+    <input id="input" value="" width="100px">
+</body>
+<script>
+    let input = document.querySelector('#input');
+    let forw = document.querySelector('#forward');
+    let back = document.querySelector('#back');
+    const inCh = new inpChange();
+    // forw.addEventListener('click', fnForw());
+    input.addEventListener('change', inCh());
+    // back.addEventListener('click', fnBack());
+    function inpChange() {
+        changes = [];
+        j = 0;
+        return () => {
+            changes.push(this.value);
+            console.log(this.value);
+            // function fnBack() {
+            //     if (j > 0) {
+            //         this.value = changes[j - 1];
+            //         j--;
+            //     }
+            // }
+            // function fnForw() {
+            //     if (j < changes.length - 1) {
+            //         this.value = changes[++j];
+            //     }
+            // }
+        }
+    };
+
+</script>
+
+</html>
