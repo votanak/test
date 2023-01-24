@@ -13,11 +13,25 @@
 
 </body>
 <script>
-    function makePassword(password) {
-        let tryPassword = '123';
-        return (tryPassword === password);
+    function lookSay(number) {
+        console.log(number);
+        let nArr = [];
+        let newArr = [];
+        nArr = number.toString().split('');
+        let newEl;
+        newEl = nArr[0];
+        for (i = 1; i <= nArr.length; i++) {
+            if (nArr[i] === nArr[i - 1]) {
+                newEl = newEl.concat(nArr[i]);
+            } else {
+                newArr.push(newEl.length.toString().concat(newEl[0]));
+                newEl = nArr[i];
+            }
+        }
+        return +newArr.join('');
     }
-    console.log(makePassword('123'));
+
+    console.log(lookSay(2220014));
 </script>
 
 </html>
