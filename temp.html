@@ -13,10 +13,10 @@
 
 </body>
 <script>
-    function makeBuffer(str) {
+    function makeBuffer() {
         let buff = '';
-        return () => {
-            if (str != undefined) {
+        return (str) => {
+            if (str === undefined) {
                 return buff;
             }
             else {
