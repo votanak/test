@@ -13,25 +13,27 @@
 
 </body>
 <script>
-    function lookSay(number) {
-        console.log(number);
-        let nArr = [];
-        let newArr = [];
-        nArr = number.toString().split('');
-        let newEl;
-        newEl = nArr[0];
-        for (i = 1; i <= nArr.length; i++) {
-            if (nArr[i] === nArr[i - 1]) {
-                newEl = newEl.concat(nArr[i]);
-            } else {
-                newArr.push(newEl.length.toString().concat(newEl[0]));
-                newEl = nArr[i];
+    function makeBuffer(str) {
+        let buff = '';
+        return () => {
+            if (str != undefined) {
+                return buff;
+            }
+            else {
+                buff += str.toString();
             }
         }
-        return +newArr.join('');
     }
 
-    console.log(lookSay(2220014));
+    let buffer = makeBuffer();
+
+    // добавить значения к буферу
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    // получить текущее значение
+    console.log(buffer()); // Замыкания Использовать Нужно!    console.log(makePassword('123'));
 </script>
 
 </html>
