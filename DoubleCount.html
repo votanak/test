@@ -18,20 +18,17 @@
     const butPlus = document.querySelector('#butPlus');
     const butMinus = document.querySelector('#butMinus');
     const nul = document.getElementById('nul');
-    butPlus.addEventListener('click', function () { nul.innerText = incrNumber.up() });
-    butMinus.addEventListener('click', function () { nul.innerText = incrNumber.down() });
+    butPlus.addEventListener('click', function () { nul.innerText = changeNumber(1) });
+    butMinus.addEventListener('click', function () { nul.innerText = changeNumber(-1) });
     function Counter() {
         let savedValue = 0;
-
-        this.up = function () {
-            return ++savedValue;
-        }
-        this.down = function () {
-            return --savedValue;
+        return function (a) {
+            savedValue += a;
+            return savedValue;
         }
 
     };
-    const incrNumber = new Counter();
+    const changeNumber = Counter();
 </script>
 
 
