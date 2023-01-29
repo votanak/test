@@ -13,11 +13,15 @@
 
 </body>
 <script>
-    function square(x) { return x * x; } // возведение в квадрат
-    function map(fn, arr) {
-        let arr1 = [];
-        for (el of arr) {
-            arr1.push(fn(el));
+    function makeBuffer(str) {
+        let buff = '';
+        return () => {
+            if (str != undefined) {
+                return buff;
+            }
+            else {
+                buff += str.toString();
+            }
         }
         return arr1;
     }
