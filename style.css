@@ -7,7 +7,12 @@ body {
   color: rgb(31, 192, 80);
 }
 
-#forBack {
+#newInput {
   display: flex;
   justify-content: space-between;
+  width: 200px;
+  flex-wrap: wrap;
+}
+#newInput #input {
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */

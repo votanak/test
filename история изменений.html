@@ -10,39 +10,42 @@
 </head>
 
 <body>
-    <div id="forBack">
-        <div id="back">Назад</div>
-        <div id="forward">Вперёд</div>
+    <div id="newInput">
+        <div id="back">РќР°Р·Р°Рґ</div>
+        <div id="forward">Р’РїРµСЂРµРґ</div>
+        <input id="input" value="">
     </div>
-    <input id="input" value="" width="100px">
 </body>
 <script>
     let input = document.querySelector('#input');
     let forw = document.querySelector('#forward');
     let back = document.querySelector('#back');
-    const inCh = new inpChange();
-    // forw.addEventListener('click', fnForw());
-    input.addEventListener('change', inCh());
+    // const inpCh = new inpChange();
+    forw.addEventListener('click', inpChange.fnBack());
     // back.addEventListener('click', fnBack());
+    input.addEventListener('change', inpChange());
     function inpChange() {
-        changes = [];
-        j = 0;
-        return () => {
+        let changes = [];
+        console.log(this);
+        this.fnBack = function () {
+            if (j > 0) {
+                this.value = changes[j - 1];
+                j--;
+            }
+        }
+        return function () {
             changes.push(this.value);
-            console.log(this.value);
-            // function fnBack() {
-            //     if (j > 0) {
-            //         this.value = changes[j - 1];
-            //         j--;
-            //     }
-            // }
+            console.log(this);
+            console.log(changes);
+
             // function fnForw() {
             //     if (j < changes.length - 1) {
             //         this.value = changes[++j];
             //     }
-            // }
         }
-    };
+
+    }
+
 
 </script>
 

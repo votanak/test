@@ -13,23 +13,31 @@
     <div id="progress"></div>
 </body>
 <script>
-    let i = 0;
-
-    function count() {
-
-        // сделать часть крупной задачи (*)
-        do {
-            i++;
-            progress.innerHTML = i;
-        } while (i % 1e3 != 0);
-
-        if (i < 1e7) {
-            setTimeout(count);
+    function makeBuffer() {
+        let buff = '';
+        return (str) => {
+            if (str === undefined) {
+                return buff;
+            }
+            else {
+                buff += str.toString();
+            }
         }
-
     }
+    console.log(map(square, [1, 2, 3, 4])); // [1, 4, 9, 16]
+    console.log(map(square, []));
 
-    count();
+
+
+    let buffer = makeBuffer();
+
+    // добавить значения к буферу
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    // получить текущее значение
+    console.log(buffer()); // Замыкания Использовать Нужно!    console.log(makePassword('123'));
 </script>
 
 </html>
