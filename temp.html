@@ -13,31 +13,17 @@
     <div id="progress"></div>
 </body>
 <script>
-    function makeBuffer() {
-        let buff = '';
-        return (str) => {
-            if (str === undefined) {
-                return buff;
-            }
-            else {
-                buff += str.toString();
-            }
-        }
+    const sleep = ms => {
+        return new Promise(resolve => {
+            setTimeout(() => resolve(), ms)
+        })
     }
-    console.log(map(square, [1, 2, 3, 4])); // [1, 4, 9, 16]
-    console.log(map(square, []));
-
-
-
-    let buffer = makeBuffer();
-
-    // добавить значения к буферу
-    buffer('Замыкания');
-    buffer(' Использовать');
-    buffer(' Нужно!');
-
-    // получить текущее значение
-    console.log(buffer()); // Замыкания Использовать Нужно!    console.log(makePassword('123'));
+    Promise.all([sleep(2000), sleep(5000)]).then(() => {
+        console.log('All Promises');
+    })
+    Promise.race([sleep(2000), sleep(5000)]).then(() => {
+        console.log('All Promises');
+    })
 </script>
 
 </html>
