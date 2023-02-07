@@ -10,12 +10,21 @@
 </head>
 
 <body>
-
+    <div id="progress"></div>
 </body>
-<script src="fetch.js">
 
-
-
+<script>
+    const sleep = ms => {
+        return new Promise(resolve => {
+            setTimeout(() => resolve(), ms)
+        })
+    }
+    Promise.all([sleep(2000), sleep(5000)]).then(() => {
+        console.log('All Promises');
+    })
+    Promise.race([sleep(2000), sleep(5000)]).then(() => {
+        console.log('All Promises');
+    })
 </script>
 
 </html>
