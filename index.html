@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>TEST</title>
-</head>
+  </head>
 
-<body>
-    <button id="butPlus">+</button>
-    <button id="butMinus">-</button>
-    <div id="nul">0</div>
-</body>
-<script>
-    function makeArmy() {
-        let shooters = [];
+  <body>
+    <script>
+      // function getPersonInfo(name, city, age) {
+      //   return [name, city, age];
+      // }
 
-        let i = 0;
-        while (i < 10) {
-            let j = i;
-            let shooter = function () {
-                alert(j); // должна выводить порядковый номер
-            };
-            shooters.push(shooter);
-            i++;
-        }
+      // function getPersonInfo(name) {
+      //   return function (city) {
+      //     return function (age) {
+      //       return [name, city, age];
+      //     };
+      //   };
+      // }
+      // function getPersonInfo(name) {
+      //   return function (city, age) {
+      //     return [name, city, age];
+      //   };
+      // }
 
-        return shooters;
-    }
+      // const getter = getPersonInfo('Alex');
+      // console.log(getter('Voronezh', 34));
 
-    let army = makeArmy();
+      function getPersonInfo(name, city, age) {
+        return [name, city, age];
+      }
 
-    console.log(army[0]()); // у 0-го стрелка будет номер 10
-    console.log(army[5]());
+      function carry(fn) {
+        return function inner(...args1) {
+          if (fn.length === args1.length) {
+            return fn(...args1);
+          }
+          return function (...args2) {
+            return inner(...args1, ...args2);
+          };
+        };
+      }
 
-</script>
+      const infoGetter = carry(getPersonInfo);
 
-
-
+      console.log(infoGetter('John', 'Moscow', 37));
+      console.log(infoGetter('John')(47)(48));
+      console.log(infoGetter('John', 'Lipetsk')(47));
+    </script>
+  </body>
 </html>
