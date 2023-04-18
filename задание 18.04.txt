@@ -1,0 +1,7 @@
+SideEffect
+Доп. хуки в продвинутых 
+Why Did You Render
+https://www.netlify.com/ - хост
+JS и React testing library
+TDD - тест драйв и девелопмент
+Ticket tracker
