@@ -1,4 +1,4 @@
-SideEffect
+SideEffect +
 Доп. хуки в продвинутых 
 Why Did You Render
 https://www.netlify.com/ - хост
