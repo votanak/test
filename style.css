@@ -1,13 +1,43 @@
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.acc_box {
+	height: 100px;
+	display: flex;
+	align-items: stretch;
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} /*# sourceMappingURL=style.css.map */
+
+h2 {
+	margin: 5px;
+	align-self: center;
+}
+
+img {
+}
+
+* {
+	font-family: Areal;
+}
+.b-container {
+	width: 200px;
+	height: 150px;
+	background-color: #ccc;
+	margin: 0px auto;
+	padding: 10px;
+	font-size: 30px;
+	color: #fff;
+}
+.b-popup {
+	width: 100%;
+	min-height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+	position: fixed;
+	top: 0px;
+}
+.b-popup .b-popup-content {
+	margin: 40px auto 0px auto;
+	width: 100px;
+	height: 40px;
+	padding: 10px;
+	background-color: #c5c5c5;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px #000;
+}
