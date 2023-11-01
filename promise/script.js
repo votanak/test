@@ -4,16 +4,15 @@ const param = {
   cityId: 2643743,
 };
 
-const getWeather = () => {
-  fetch(
-    `${param.url}weather?id=${param["cityId"]}&units=metric&APPID=${param.appid}`
-  )
-    .then((weather) => {
-      return weather.json();
-    })
-    .then((data) => {
-      console.log(data);
-    });
+const f1 = async () => {
+  const requestHeaders = new Headers();
+  requestHeaders.append("apikey", "03508a32621d549c");
+  const res = await fetch(`https://api.itgid.info/api/26/employee/read`, {
+    method: "GET",
+    headers: requestHeaders,
+  });
+  const result = await res.json();
+  console.log(result);
 };
 
-getWeather();
+f1();
