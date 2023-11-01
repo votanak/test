@@ -1,8 +1,4 @@
 .page {
-	width: 300px;
-	height: 100px;
-	background-color: yellow;
-	margin: 0px auto;
 }
 
 .popBack {
@@ -13,6 +9,7 @@
 	position: fixed;
 	top: 0px;
 	justify-content: center;
+	pointer-events: none;
 	opacity: 0;
 	visibility: hidden;
 }
@@ -22,15 +19,11 @@
 	visibility: visible;
 }
 
-#popupClose {
-	opacity: 0;
-	visibility: hidden;
-}
-
 .popBack .popUp {
 	width: 100px;
 	height: 100px;
 	background-color: #fff;
+	pointer-events: all;
 }
 
 .popArea {
