@@ -8,9 +8,7 @@ const getWeather = () => {
   fetch(
     `${param.url}weather?id=${param["cityId"]}&units=metric&APPID=${param.appid}`
   )
-    .then((weather) => {
-      return weather.json();
-    })
+    .then((weather) => {})
     .then((data) => {
       console.log(data);
     });
