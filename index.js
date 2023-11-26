@@ -1,18 +1,18 @@
 var debounce = function (fn, t) {
-  let called = true;
-  tOut = setTimeout(() => (called = false), t);
+  let called = false;
   return function (...args) {
-    if (called) {
-      clearTimeout(tOut);
-      tOut = setTimeout(() => (called = false), t);
-    }
-    if (!called) return fn(...args);
+    called = true;
+    return setTimeout(() => {
+      console.log(called);
+      if (called) {
+        fn(...args);
+        called = false;
+      }
+    }, t);
   };
 };
 
-/**
- * const log = debounce(console.log, 100);
- * log('Hello'); // cancelled
- * log('Hello'); // cancelled
- * log('Hello'); // Logged at t=100ms
- */
+const log = debounce(console.log, 500);
+log("Hello 0");
+setTimeout(() => log("Hello 2000"), 2000);
+setTimeout(() => log("Hello 1000"), 1000);
