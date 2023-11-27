@@ -7,13 +7,14 @@ var funcs = [
 var promiseAll = async function (functions) {
   let mass = [];
   for (let i = 0; i < functions.length; i += 1) {
-    async () => {
-      const el = await functions[i]();
-      mass.push(el);
-    };
+    try {
+      functions[i]();
+    } catch {
+      return;
+    }
+    mass.push(el);
   }
   console.log(mass);
-  return;
 };
 
 promiseAll(funcs);
