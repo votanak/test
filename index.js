@@ -19,32 +19,35 @@
 // };
 
 var join = function (arr1, arr2) {
-  let arr1Mod = arr1.map((el) => {
+  let obj1 = arr1.reduce((acc, el) => {
     const { id, ...rest } = el;
-    return { [id]: rest };
-  });
-  let arrId1;
-  let arrId2 = arr2.map((el) => el.id);
-  // let notEq = arrId1.filter((el) => !arrId2.includes(el));
-  console.log(arr1Mod);
-  // console.log('notEq', notEq);
-  arr2.forEach((obj2, ind2) => {
-    // цикл по второму массиву obj2 - объект из массива arr2
-    let found = false;
-    arr1.forEach((obj1, ind1) => {
-      // проходимся по объектам первого массива obj1 - объект из массива arr1
-      if (obj1.id === obj2.id) {
-        // если id совпадает, то ...
-        for (el in obj2) {
-          // ... записываем все пары объекта из arr2 в объект из arr1
-          obj1[el] = obj2[el];
+    acc[id] = rest;
+    return acc;
+  }, {});
+  let obj2 = arr2.reduce((acc, el) => {
+    const { id, ...rest } = el;
+    acc[id] = rest;
+    return acc;
+  }, {});
+
+  console.log(obj1);
+
+  for (key of Object.keys(obj1)) {
+    if (Object.keys(obj2).includes(key)) {
+      for (keyIn of Object.keys(obj1[key])) {
+        if (!Object.keys(obj2[key]).includes(keyIn)) {
+          obj2[key][keyIn] = obj1[key][keyIn];
         }
-        found = true; //флаг нахождения obj2 в arr1
       }
-    });
-    if (!found) arr1.push(obj2);
-  });
-  return arr1.sort((a, b) => a.id - b.id);
+    } else {
+      obj2[key] = obj1[key];
+    }
+  }
+  let newArr = Object.keys(obj2).reduce((acc, el, ind) => {
+    acc.push({ id: +el, ...obj2[el] });
+    return acc;
+  }, []);
+  return newArr.sort((a, b) => a.id - b.id);
 };
 
 arr1 = [{ id: 1, b: { b: 94 }, v: [4, 3], y: 48 }];
