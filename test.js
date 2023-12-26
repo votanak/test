@@ -1,14 +1,16 @@
-function rot13(str) {
-  let a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  let b = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-  let str1 = [...str].map((el) => {
-    if ([...a].indexOf(el) >= 0) {
-      return [...b][[...a].indexOf(el)];
-    } else {
-      return el;
-    }
-  });
-  return str1.join("");
+function stripScripts(s) {
+  var div = document.createElement('div');
+  div.innerHTML = s;
+  var scripts = div.getElementsByTagName('script');
+  var i = scripts.length;
+  while (i--) {
+    scripts[i].parentNode.removeChild(scripts[i]);
+  }
+  return div.innerHTML;
 }
 
-console.log(rot13("EBG13 rknzcyr."));
+alert(
+  stripScripts(
+    '<span><script type="text/javascript">alert(\'foo\');</script></span>',
+  ),
+);
