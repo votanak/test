@@ -1,16 +1,18 @@
-function stripScripts(s) {
-  var div = document.createElement('div');
-  div.innerHTML = s;
-  var scripts = div.getElementsByTagName('script');
-  var i = scripts.length;
-  while (i--) {
-    scripts[i].parentNode.removeChild(scripts[i]);
-  }
-  return div.innerHTML;
-}
-
-alert(
-  stripScripts(
-    '<span><script type="text/javascript">alert(\'foo\');</script></span>',
-  ),
-);
+fetch('https://ru.lipsum.com/')
+  .then(function (response) {
+    // When the page is loaded convert it to text
+    return response.text();
+  })
+  .then(function (html) {
+    // Initialize the DOM parser
+    var parser = new DOMParser();
+    // Parse the text
+    var doc = parser.parseFromString(html, 'text/html');
+    // You can now even select part of that html as you would in the regular DOM
+    // Example:
+    // var docArticle = doc.querySelector('article').innerHTML;
+    console.log(doc);
+  })
+  .catch(function (err) {
+    console.log('Failed to fetch page: ', err);
+  });
