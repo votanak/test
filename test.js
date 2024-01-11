@@ -1,16 +1,6 @@
-function stripScripts(s) {
-  var div = document.createElement('div');
-  div.innerHTML = s;
-  var scripts = div.getElementsByTagName('script');
-  var i = scripts.length;
-  while (i--) {
-    scripts[i].parentNode.removeChild(scripts[i]);
-  }
-  return div.innerHTML;
-}
-
-alert(
-  stripScripts(
-    '<span><script type="text/javascript">alert(\'foo\');</script></span>',
-  ),
-);
+fetch('http:192.168.1.65:8000/get_html', {
+  method: 'POST',
+  body: {
+    link: 'https://alexandrinsky.ru/afisha-i-bilety/?afisha_open_widget=1',
+  },
+});
