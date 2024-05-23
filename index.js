@@ -1,29 +1,11 @@
-const loadPage = async () => {
-  const loadedHtml = await fetch('./677074.html')
-    .then(function (response) {
-      // When the page is loaded convert it to text
-      console.log(response);
-      return response.text();
-    })
-    .then(function (html) {
-      console.log(html);
-      // Initialize the DOM parser
-      var parser = new DOMParser();
-      // Parse the text
-      var doc = parser.parseFromString(html, 'text/html');
-      // You can now even select part of that html as you would in the regular DOM
-      // Example:
-      let docArticle = doc.querySelector('body').innerHTML;
-      document.body.insertAdjacentHTML('afterbegin', docArticle);
-    })
-    .catch(function (err) {
-      console.log('Failed to fetch page: ', err);
-    });
-  console.log(loadedHtml);
+const img = new Image();
+let div = document.createElement('div');
+div.className = 'alert';
+img.src =
+  'https://sun1-57.userapi.com/s/v1/if1/_Y_4QMdFCSQLyVdHkEmHRCd93FIxLhjo_50HHAKmnMi72R9sdOPKIWTlMM09gPku55U0M12O.jpg?size=960x1476&quality=96&crop=0,0,960,1476&ava=1';
+
+img.onload = function () {
+  div.innerHTML = `ширина: ${this.width} + 'x' + ${this.height}`;
+  document.body.append(div);
+  document.body.append(img);
 };
-fetch(
-  'http://192.168.1.65:8000/event_info?event_id=676959&user_token=1702901399752-134904',
-  {
-    method: 'GET',
-  },
-);
