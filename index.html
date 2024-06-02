@@ -16,16 +16,16 @@
         display: flex;
       }
     </style>
-    <div id="cont">
-      <select id="select">
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-        <option>Option 4</option>
-        <option>Option 5</option>
-      </select>
-      <div id="divopen">Открыть</div>
-    </div>
-    <script type="text/javascript" src="index.js"></script>
+    <form onsubmit="cont" id="myForm">
+      <input value="laskdjf" />
+      <button type="submit">Отправить</button>
+    </form>
+    <script type="text/javascript">
+      function cont(event) {
+        event.preventDefault();
+        console.log('alskdjfa');
+      }
+      document.getElementById('myForm').addEventListener('submit', cont);
+    </script>
   </body>
 </html>
