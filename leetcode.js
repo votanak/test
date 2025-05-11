@@ -1,28 +1,18 @@
-var longestPalindrome = function (s) {
-  if (s.length < 2) return s;
-
-  let maxLen = 1;
-  let start = 0;
-
-  // Функция для расширения вокруг центра
-  const expandAroundCenter = (left, right) => {
-    while (left >= 0 && right < s.length && s[left] === s[right]) {
-      const currentLen = right - left + 1;
-      if (currentLen > maxLen) {
-        maxLen = currentLen;
-        start = left;
-      }
-      left--;
-      right++;
-    }
-  };
-
-  for (let i = 0; i < s.length; i++) {
-    expandAroundCenter(i, i); // Нечётный палиндром (центр — символ)
-    expandAroundCenter(i, i + 1); // Чётный палиндром (центр — между символами)
+var convert = function (s, numRows) {
+  const strings = [];
+  for (j = 0; j < numRows; j++) {
+    strings.push([]);
   }
-
-  return s.slice(start, start + maxLen);
+  let sNumber = 0;
+  let sStep = 1;
+  for (i = 0; i < s.length; i++) {
+    strings[sNumber].push(s[i]);
+    sNumber = sNumber + sStep;
+    if (sNumber === numRows - 1) sStep = -1;
+    if (sNumber === 0) sStep = 1;
+    console.log(strings);
+  }
+  return strings.toString().replaceAll(',', '');
 };
 
-console.log(longestPalindrome('abbaя'));
+console.log(convert('ab', 3));
