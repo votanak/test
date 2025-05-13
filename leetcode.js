@@ -1,18 +1,29 @@
-var convert = function (s, numRows) {
-  if (numRows === 1) {
-    return s;
+var func = function (s) {
+  let sign;
+  const limit = (str) => {
+    const MIN = -(2 ** 31);
+    const MAX = 2 ** 31 - 1;
+    return str < MIN ? MIN : str > MAX ? MAX : str;
+  };
+  s = s.trim();
+  if (s[0] === '-') {
+    sign = -1;
+    s = s.slice(1);
+  } else if (s[0] === '+') {
+    sign = 1;
+    s = s.slice(1);
+  } else {
+    sign = 1;
   }
-  const strings = new Array(numRows);
-  strings.fill('');
-  let sNumber = 0;
-  let sStep = 1;
+  let endSimbol = s.length;
   for (i = 0; i < s.length; i++) {
-    strings[sNumber] += s[i];
-    sNumber = sNumber + sStep;
-    if (sNumber === numRows - 1) sStep = -1;
-    if (sNumber === 0) sStep = 1;
+    let code = s[i].charCodeAt(0);
+    if (code < 48 || code > 57) {
+      endSimbol = i;
+      break;
+    }
   }
-  return strings.join('');
+  return limit(Number(s.slice(0, endSimbol)) * sign);
 };
 
-console.log(convert('ablkaj,alsdkjfskf,sdfsafdjlsa', 5));
+console.log(func('   -042'));
