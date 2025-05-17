@@ -1,13 +1,6 @@
-var func = function (x) {
-  if (x < 0) return false;
-  let rev = 0;
-  let x1 = x;
-  while (x1 > 0) {
-    rev = rev * 10 + (x1 % 10);
-    x1 = Math.floor(x1 / 10);
-  }
-
-  return x === rev;
+var func = function (s, p) {
+  if (!(p.includes('.') || p.includes('*'))) return s === p;
+  const regex = new RegExp(`^${p}$`, 'g');
+  return regex.test(s);
 };
-
-console.log(func(1221));
+console.log(func('mississippi', 'mis*is*p*.'));
