@@ -1,29 +1,13 @@
-var func = function (s) {
-  let sign;
-  const limit = (str) => {
-    const MIN = -(2 ** 31);
-    const MAX = 2 ** 31 - 1;
-    return str < MIN ? MIN : str > MAX ? MAX : str;
-  };
-  s = s.trim();
-  if (s[0] === '-') {
-    sign = -1;
-    s = s.slice(1);
-  } else if (s[0] === '+') {
-    sign = 1;
-    s = s.slice(1);
-  } else {
-    sign = 1;
+var func = function (x) {
+  if (x < 0) return false;
+  let rev = 0;
+  let x1 = x;
+  while (x1 > 0) {
+    rev = rev * 10 + (x1 % 10);
+    x1 = Math.floor(x1 / 10);
   }
-  let endSimbol = s.length;
-  for (i = 0; i < s.length; i++) {
-    let code = s[i].charCodeAt(0);
-    if (code < 48 || code > 57) {
-      endSimbol = i;
-      break;
-    }
-  }
-  return limit(Number(s.slice(0, endSimbol)) * sign);
+
+  return x === rev;
 };
 
-console.log(func('   -042'));
+console.log(func(1221));
